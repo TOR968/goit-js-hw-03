@@ -1,26 +1,16 @@
 function getAllPropValues(array, prop) {
   'use strict';
   // Write code under this line
-
-  let arrayProducts = [];
-  // let itemTi = [];
-
-  // for (const key in array) {
-  //   console.log(array[(prop, key)]);
-  //   arrayProducts.push(array[key]);
-
-  //   let item = key[prop];
-  //   if (item != undefined) {
-  //     itemTi.push(item);
-  //   }
-  // }
-  // return itemTi;
-  arrayProducts.push(Object.values(array));
-  // console.log(arrayProducts);
-  for (const key in arrayProducts) {
-    // console.log(arrayProducts[key]);
+  const items = [];
+  for (const value of array) {
+    let item = value[prop];
+    if (item != undefined) {
+      items.push(item);
+    }
   }
+  return items;
 }
+
 // Объекты и ожидаемый результат
 const products = [
   { name: 'Радар', price: 1300, quantity: 4 },
@@ -31,7 +21,7 @@ const products = [
   { name: 'Дроид', price: 400, quantity: 7 },
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
-console.table(products);
+// console.table(products);
 console.log(getAllPropValues(products, 'name'));
 // ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
 
